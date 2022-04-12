@@ -26,7 +26,6 @@ class StationSearchViewController: UIViewController {
         
         setNavigationItems()
         setTableViewLayout()
-        
     }
     
     private func setNavigationItems(){
@@ -59,6 +58,7 @@ class StationSearchViewController: UIViewController {
                 else { return }
                 
                 self.stations = data.stations
+                print(self.stations)
                 self.tableView.reloadData()
 
             }

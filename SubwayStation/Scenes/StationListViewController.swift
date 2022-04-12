@@ -56,6 +56,7 @@ final class StationListViewController: UIViewController {
         collectionView.snp.makeConstraints{ $0.edges.equalToSuperview() }
         
         fetchData()
+        Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(fetchData), userInfo: nil, repeats: true)
     }
     
     @objc private func fetchData(){
