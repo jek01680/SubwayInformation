@@ -57,7 +57,16 @@ class StationSearchViewController: UIViewController {
                     case .success(let data) = response.result
                 else { return }
                 
-                self.stations = data.stations
+                var set = Set<String>()
+                self.stations = data.stations.filter({ s in
+                    let flag = set.contains(s.stationName)
+                    
+                    if !flag {
+                        set.insert(s.stationName)
+                    }
+                    
+                    return flag
+                })
                 print(self.stations)
                 self.tableView.reloadData()
 
